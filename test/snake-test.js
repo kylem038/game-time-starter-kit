@@ -129,4 +129,30 @@ describe('snake', function() {
       snake.moveRight();
       assert.equal(snake.x, 252);
     });
+
+    it('Segments follow', function() {
+      var snake = new Snake();
+      snake.addSegment();
+      assert.equal(1, snake.tail.length)
+    });
+
+    it('should follow upon moving', function(){
+
+      var snake = new Snake();
+
+      snake.addSegment();
+      snake.segmentFollowSnake()
+
+      snake.moveUp();
+      snake.segmentFollowSnake()
+
+      snake.moveUp();
+      snake.segmentFollowSnake()
+
+      snake.moveUp()
+      snake.segmentFollowSnake()
+
+      assert.equal(snake.y-1, snake.tail[0].y)
+    })
+
   });
