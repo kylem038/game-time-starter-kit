@@ -136,23 +136,60 @@ describe('snake', function() {
       assert.equal(1, snake.tail.length)
     });
 
-    it('should follow upon moving', function(){
+    // it('should follow upon moving', function(){
+    //
+    //   var snake = new Snake();
+    //
+    //   snake.addSegment();
+    //   snake.segmentFollowSnake();
+    //
+    //   snake.moveUp();
+    //   snake.segmentFollowSnake();
+    //
+    //   snake.moveUp();
+    //   snake.segmentFollowSnake();
+    //
+    //   snake.moveUp();
+    //   snake.segmentFollowSnake();
+    //
+    //   assert.equal(snake.y-1, snake.tail[0].y)
+    //
+    // })
 
-      var snake = new Snake();
+    it('should follow upon moving up', function(){
 
-      snake.addSegment();
-      snake.segmentFollowSnake()
+      var snake = new Snake("world");
+      snake.tail = [
+        { direction: snake.direction, x: snake.x, y: snake.y }
+      ];
+
+      [1,2,3,4,5,6,7,8,9].map(() => snake.moveUp());
+
+      assert.equal(250, snake.x);
+      assert.equal(241, snake.y);
+      assert.equal(250, snake.tail[0].x);
+      assert.equal(250, snake.tail[0].y);
 
       snake.moveUp();
-      snake.segmentFollowSnake()
-
       snake.moveUp();
-      snake.segmentFollowSnake()
+      assert.equal(250, snake.x);
+      assert.equal(239, snake.y);
+      assert.equal(250, snake.tail[0].x);
+      assert.equal(249, snake.tail[0].y);
 
-      snake.moveUp()
-      snake.segmentFollowSnake()
+    });
 
-      assert.equal(snake.y-1, snake.tail[0].y)
-    })
+    it('should follow upon moving down', function(){
+
+      var snake = new Snake("world");
+      snake.tail = [
+        { direction: snake.direction, x: snake.x, y: snake.y }
+      ];
+      snake.moveDown();
+      assert.equal(250, snake.x);
+      assert.equal(251, snake.y);
+      assert.equal(250, snake.tail[0].x);
+      assert.equal(250, snake.tail[0].y);
+    });
 
   });
