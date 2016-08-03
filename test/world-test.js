@@ -37,13 +37,7 @@ describe('world', function () {
       assert.isObject(world);
     });
 
-  context('has collisions', function() {
-    // it('between the snake & the top boundary', function() {
-    //   var world = new World();
-    //   var snake = new Snake(world, -100, -100, 10, 10);
-    //   assert.equal(snake.world.collisionTop());
-    // });
-
+  context('has can end', function() {
     it('should have a gameOver function', function () {
       var world = new World();
       assert.isFunction(world.gameOver);
