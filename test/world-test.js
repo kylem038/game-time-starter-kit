@@ -38,9 +38,10 @@ describe('world', function () {
     });
 
   context('has collisions', function() {
-    it('between the snake & the boundaries', function() {
+    it('between the snake & the top boundary', function() {
+      var snake = new Snake();
       var world = new World();
-      assert.isTrue(world.collisionTop());
+      assert.isTrue(snake.segements[0].collisionTop());
     });
 
     it('should have a gameOver function', function () {
