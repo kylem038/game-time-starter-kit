@@ -1,5 +1,6 @@
-  const assert = require('chai').assert;
+const assert = require('chai').assert;
 const Snake = require('../lib/snake');
+const World = require('../lib/world');
 
 describe('Snake', function() {
   context('has default attributes', function() {
@@ -52,55 +53,63 @@ describe('Snake', function() {
 
   context('changing coordinates', function() {
     it('can move up', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.moveUp();
-      assert.equal(snake.segments[0].y, 240);
+      world.snake.moveUp();
+      assert.equal(world.snake.segments[0].y, 240);
     });
 
     it('can move up twice', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.moveUp();
-      snake.moveUp();
-      assert.equal(snake.segments[0].y, 230);
+      world.snake.moveUp();
+      world.snake.moveUp();
+      assert.equal(world.snake.segments[0].y, 230);
     });
 
     it('can move down', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.moveDown();
-      assert.equal(snake.segments[0].y, 260);
+      world.snake.moveDown();
+      assert.equal(world.snake.segments[0].y, 260);
     });
 
     it('can move down twice', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.moveDown();
-      snake.moveDown();
-      assert.equal(snake.segments[0].y, 270);
+      world.snake.moveDown();
+      world.snake.moveDown();
+      assert.equal(world.snake.segments[0].y, 270);
     });
 
     it('can move left', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.moveLeft();
-      assert.equal(snake.segments[0].x, 240);
+      world.snake.moveLeft();
+      assert.equal(world.snake.segments[0].x, 240);
     });
 
     it('can move left twice', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.moveLeft();
-      snake.moveLeft();
-      assert.equal(snake.segments[0].x, 230);
+      world.snake.moveLeft();
+      world.snake.moveLeft();
+      assert.equal(world.snake.segments[0].x, 230);
     });
 
     it('can move right', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.moveRight();
-      assert.equal(snake.segments[0].x, 260);
+      world.snake.moveRight();
+      assert.equal(world.snake.segments[0].x, 260);
     });
 
     it('can move up right', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.moveRight();
-      snake.moveRight();
-      assert.equal(snake.segments[0].x, 270);
+      world.snake.moveRight();
+      world.snake.moveRight();
+      assert.equal(world.snake.segments[0].x, 270);
     });
   });
 
@@ -124,87 +133,95 @@ describe('Snake', function() {
     });
 
     it('should follow upon moving up', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.addSegment();
-      snake.moveUp();
-      assert.equal(250, snake.segments[0].x);
-      assert.equal(240, snake.segments[0].y);
-      assert.equal(250, snake.segments[1].x);
-      assert.equal(250, snake.segments[1].y);
+      world.snake.addSegment();
+      world.snake.moveUp();
+      assert.equal(250, world.snake.segments[0].x);
+      assert.equal(240, world.snake.segments[0].y);
+      assert.equal(250, world.snake.segments[1].x);
+      assert.equal(250, world.snake.segments[1].y);
     });
 
     it('should follow upon moving up twice', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.addSegment();
-      snake.moveUp();
-      snake.moveUp();
-      assert.equal(250, snake.segments[0].x);
-      assert.equal(230, snake.segments[0].y);
-      assert.equal(250, snake.segments[1].x);
-      assert.equal(240, snake.segments[1].y);
+      world.snake.addSegment();
+      world.snake.moveUp();
+      world.snake.moveUp();
+      assert.equal(250, world.snake.segments[0].x);
+      assert.equal(230, world.snake.segments[0].y);
+      assert.equal(250, world.snake.segments[1].x);
+      assert.equal(240, world.snake.segments[1].y);
     });
 
     it('should follow upon moving down', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.addSegment();
-      snake.moveDown();
-      assert.equal(250, snake.segments[0].x);
-      assert.equal(260, snake.segments[0].y);
-      assert.equal(250, snake.segments[1].x);
-      assert.equal(250, snake.segments[1].y);
+      world.snake.addSegment();
+      world.snake.moveDown();
+      assert.equal(250, world.snake.segments[0].x);
+      assert.equal(260, world.snake.segments[0].y);
+      assert.equal(250, world.snake.segments[1].x);
+      assert.equal(250, world.snake.segments[1].y);
     });
 
     it('should follow upon moving down twice', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.addSegment();
-      snake.moveDown();
-      snake.moveDown();
-      assert.equal(250, snake.segments[0].x);
-      assert.equal(270, snake.segments[0].y);
-      assert.equal(250, snake.segments[1].x);
-      assert.equal(260, snake.segments[1].y);
+      world.snake.addSegment();
+      world.snake.moveDown();
+      world.snake.moveDown();
+      assert.equal(250, world.snake.segments[0].x);
+      assert.equal(270, world.snake.segments[0].y);
+      assert.equal(250, world.snake.segments[1].x);
+      assert.equal(260, world.snake.segments[1].y);
     });
 
     it('should follow upon moving left', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.addSegment();
-      snake.moveLeft();
-      assert.equal(240, snake.segments[0].x);
-      assert.equal(250, snake.segments[0].y);
-      assert.equal(250, snake.segments[1].x);
-      assert.equal(250, snake.segments[1].y);
+      world.snake.addSegment();
+      world.snake.moveLeft();
+      assert.equal(240, world.snake.segments[0].x);
+      assert.equal(250, world.snake.segments[0].y);
+      assert.equal(250, world.snake.segments[1].x);
+      assert.equal(250, world.snake.segments[1].y);
     });
 
     it('should follow upon moving left twice', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.addSegment();
-      snake.moveLeft();
-      snake.moveLeft();
-      assert.equal(230, snake.segments[0].x);
-      assert.equal(250, snake.segments[0].y);
-      assert.equal(240, snake.segments[1].x);
-      assert.equal(250, snake.segments[1].y);
+      world.snake.addSegment();
+      world.snake.moveLeft();
+      world.snake.moveLeft();
+      assert.equal(230, world.snake.segments[0].x);
+      assert.equal(250, world.snake.segments[0].y);
+      assert.equal(240, world.snake.segments[1].x);
+      assert.equal(250, world.snake.segments[1].y);
     });
 
     it('should follow upon moving right', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.addSegment();
-      snake.moveRight();
-      assert.equal(260, snake.segments[0].x);
-      assert.equal(250, snake.segments[0].y);
-      assert.equal(250, snake.segments[1].x);
-      assert.equal(250, snake.segments[1].y);
+      world.snake.addSegment();
+      world.snake.moveRight();
+      assert.equal(260, world.snake.segments[0].x);
+      assert.equal(250, world.snake.segments[0].y);
+      assert.equal(250, world.snake.segments[1].x);
+      assert.equal(250, world.snake.segments[1].y);
     });
 
     it('should follow upon moving right', function(){
+      var world = new World();
       var snake = new Snake();
-      snake.addSegment();
-      snake.moveRight();
-      snake.moveRight();
-      assert.equal(270, snake.segments[0].x);
-      assert.equal(250, snake.segments[0].y);
-      assert.equal(260, snake.segments[1].x);
-      assert.equal(250, snake.segments[1].y);
+      world.snake.addSegment();
+      world.snake.moveRight();
+      world.snake.moveRight();
+      assert.equal(270, world.snake.segments[0].x);
+      assert.equal(250, world.snake.segments[0].y);
+      assert.equal(260, world.snake.segments[1].x);
+      assert.equal(250, world.snake.segments[1].y);
     });
   });
 });
