@@ -38,11 +38,11 @@ describe('world', function () {
     });
 
   context('has collisions', function() {
-    it('between the snake & the top boundary', function() {
-      var snake = new Snake();
-      var world = new World();
-      assert.isTrue(snake.segements[0].collisionTop());
-    });
+    // it('between the snake & the top boundary', function() {
+    //   var world = new World();
+    //   var snake = new Snake(world, -100, -100, 10, 10);
+    //   assert.equal(snake.world.collisionTop());
+    // });
 
     it('should have a gameOver function', function () {
       var world = new World();

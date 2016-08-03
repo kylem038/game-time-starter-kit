@@ -4,8 +4,14 @@ html {
   background-color: #445723;
 }
 
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
-  margin-left: 33%;
+  display: flex;
+  justify-content: center;
   font-family: 'Black Ops One', cursive;
   color: #EBEEF3;
 }
